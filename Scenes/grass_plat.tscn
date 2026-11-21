@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ckn5n0pkkwvgd"]
+
+[ext_resource type="Texture2D" uid="uid://xaf7w6n6qkej" path="res://Assets/sprites/platforms.png" id="1_y36aq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_htemk"]
+radius = 5.0
+height = 32.0
+
+[node name="platform" type="AnimatableBody2D" unique_id=1997350715]
+position = Vector2(37, 33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1360708455]
+position = Vector2(-37, -32)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_htemk")
+one_way_collision = true
+one_way_collision_direction = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=152259626]
+position = Vector2(-37, -32)
+texture = ExtResource("1_y36aq")
+region_enabled = true
+region_rect = Rect2(16, 0, 31, 9)
