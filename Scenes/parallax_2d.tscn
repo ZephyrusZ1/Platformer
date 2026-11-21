@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dlnjrs6ygqif2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rwqtf"]
+load_path = "res://.godot/imported/world_tileset.png-7d0351459d02dec97d7c98fe9a06c85b.ctex"
+
+[node name="Parallax2D" type="Parallax2D" unique_id=1598450074]
+repeat_size = Vector2(16, 0)
+repeat_times = 15
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=818652425]
+texture = SubResource("CompressedTexture2D_rwqtf")
+region_enabled = true
+region_rect = Rect2(64, 144, 16, 32)
