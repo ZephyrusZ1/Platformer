@@ -13,7 +13,8 @@ func _ready() -> void:
 	add_child(ui_instance)
 
 func _on_boundary_body_entered(body: Node2D) -> void:
-	Eventbus.death.emit()
+	if body.name == "Char":
+		Eventbus.death.emit()
 
 func _on_start() -> void:
 

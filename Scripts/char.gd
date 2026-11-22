@@ -80,5 +80,6 @@ func knockback():
 	damaged = true
 	animations.play("attacked")
 	self.position.x -= 5
+	self.position.y -=20
 	await animations.animation_finished
 	damaged = false

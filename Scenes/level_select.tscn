@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://vy8qjfaoy5su"]
+
+[ext_resource type="Script" uid="uid://ciowyigeefw3y" path="res://Scripts/button.gd" id="1_1fiak"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1599052111]
+script = ExtResource("1_1fiak")
+level_path1 = "res://Scenes/main.tscn"
+level_path2 = "res://Scenes/level_2.tscn"
+level_path3 = "res://Scenes/level_3.tscn"
+
+[node name="Level_select" type="Control" parent="." unique_id=833413186]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Level_select" unique_id=450429099]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -20.0
+offset_right = 124.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level_1" type="Button" parent="Level_select/HBoxContainer" unique_id=131036294]
+custom_minimum_size = Vector2(80, 0)
+custom_maximum_size = Vector2(-1, 20)
+layout_mode = 2
+text = "Level 1"
+
+[node name="Level_2" type="Button" parent="Level_select/HBoxContainer" unique_id=632433331]
+custom_minimum_size = Vector2(80, 0)
+custom_maximum_size = Vector2(-1, 20)
+layout_mode = 2
+text = "Level 2"
+
+[node name="Level_3" type="Button" parent="Level_select/HBoxContainer" unique_id=215220332]
+custom_minimum_size = Vector2(80, 40)
+custom_maximum_size = Vector2(-1, 20)
+layout_mode = 2
+text = "Level 3"
+
+[connection signal="pressed" from="Level_select/HBoxContainer/Level_1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Level_select/HBoxContainer/Level_2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Level_select/HBoxContainer/Level_3" to="." method="_on_level_3_pressed"]

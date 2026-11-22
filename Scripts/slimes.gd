@@ -30,4 +30,4 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body.name == "Char":
 		queue_free()
-		body.velocity.y -= 600
+		body.velocity.y -= 200

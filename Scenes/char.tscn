@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b32d2kr0d3b12" path="res://Scripts/char.gd" id="1_rjfhe"]
 [ext_resource type="Texture2D" uid="uid://cjnh66abymqgx" path="res://Assets/sprites/knight.png" id="2_4d1w0"]
+[ext_resource type="PackedScene" uid="uid://cpqtgwg6gvxee" path="res://Scenes/pause.tscn" id="3_4d1w0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jp7qv"]
 atlas = ExtResource("2_4d1w0")
@@ -224,3 +225,5 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+
+[node name="Pause" parent="." unique_id=934051053 instance=ExtResource("3_4d1w0")]
