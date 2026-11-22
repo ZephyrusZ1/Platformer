@@ -19,6 +19,10 @@ func _on_start() -> void:
 
 	player.show()
 	player.global_position = spawn.global_position
+	player.move_lock = false
+	player.health.show()
+	Engine.time_scale = 1
+
 
 func _on_char_killed():
 	if not is_instance_valid(ui_instance):

@@ -8,12 +8,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$AnimatedSprite2D.play("default")
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Char":
 		body.coins += 1
-		print("you got coin")
 		body.update_counter()
 		queue_free()

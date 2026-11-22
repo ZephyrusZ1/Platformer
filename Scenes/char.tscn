@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://b32d2kr0d3b12" path="res://Scripts/char.gd" id="1_rjfhe"]
 [ext_resource type="Texture2D" uid="uid://cjnh66abymqgx" path="res://Assets/sprites/knight.png" id="2_4d1w0"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp7qv"]
+atlas = ExtResource("2_4d1w0")
+region = Rect2(64, 192, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlgpa"]
 atlas = ExtResource("2_4d1w0")
 region = Rect2(0, 224, 32, 32)
@@ -99,6 +103,14 @@ region = Rect2(224, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_jp7qv")
+}],
+"loop": 0,
+"name": &"attacked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mlgpa")
 }, {
 "duration": 1.0,
@@ -126,11 +138,6 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": 1,
-"name": &"new_animation_1",
 "speed": 5.0
 }, {
 "frames": [{
@@ -197,7 +204,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1050117811]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_htemk")
-animation = &"death"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1302282328]
 position = Vector2(0, 2)
