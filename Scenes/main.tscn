@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bqpk47h2u8j1a" path="res://Scenes/coin.tscn" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bmncrprtcr0i" path="res://Scenes/hud.tscn" id="7_6bp64"]
 [ext_resource type="PackedScene" uid="uid://c1sf7fbjrxdcr" path="res://Scenes/slimes.tscn" id="8_344ge"]
+[ext_resource type="PackedScene" uid="uid://dfx6icnl0qdf7" path="res://Scenes/dirt_finish.tscn" id="9_ynf5e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kry3j"]
 texture = ExtResource("2_8gbba")
@@ -498,6 +499,80 @@ _data = {
 &"new_animation_2": SubResource("Animation_d1ilt")
 }
 
+[sub_resource type="Animation" id="Animation_jkdf5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(950, 221)]
+}
+
+[sub_resource type="Animation" id="Animation_wsu2k"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(950, 221), Vector2(950, 324)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k12tt"]
+_data = {
+&"RESET": SubResource("Animation_jkdf5"),
+&"new_animation": SubResource("Animation_wsu2k")
+}
+
+[sub_resource type="Animation" id="Animation_h1bgf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(983, 338)]
+}
+
+[sub_resource type="Animation" id="Animation_b3802"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(983, 338), Vector2(983, 221)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fevyy"]
+_data = {
+&"RESET": SubResource("Animation_h1bgf"),
+&"new_animation": SubResource("Animation_b3802")
+}
+
 [node name="level_1" type="Node2D" unique_id=1321188691]
 rotation = -0.008081247
 script = ExtResource("1_21xkr")
@@ -514,7 +589,7 @@ metadata/_edit_group_ = true
 [node name="game" type="TileMapLayer" parent="." unique_id=1048519891]
 z_index = 2
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAAgAAQAAAAAAAAABAAgAAQAAAAAAAAACAAgAAQAAAAAAAAADAAgAAQAAAAAAAAAEAAgAAQAAAAEAAAAEAAcAAQAAAAAAAAAFAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAHAAYAAQAAAAAAAAAIAAYAAQAAAAAAAAAJAAYAAQAAAAAAAAAKAAYAAQAAAAAAAAALAAYAAQAAAAAAAAAFAAgAAQAAAAEAAAAFAAcAAQAAAAEAAAAGAAcAAQAAAAEAAAAHAAcAAQAAAAEAAAAIAAcAAQAAAAEAAAAJAAcAAQAAAAEAAAAKAAcAAQAAAAEAAAALAAcAAQAAAAEAAAALAAgAAQAAAAEAAAAKAAgAAQAAAAEAAAAJAAgAAQAAAAEAAAAIAAgAAQAAAAEAAAAHAAgAAQAAAAEAAAAGAAgAAQAAAAEAAAAMAAgAAQAAAAEAAAAMAAcAAQAAAAEAAAAMAAYAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAIAAQAAAAAAAAAIAAIAAQAAAAAAAAAJAAIAAQAAAAAAAAAKAAIAAQAAAAAAAAALAAIAAQAAAAAAAAAMAAIAAQAJAAAAAAANAAIAAQAKAAAAAAAOAAIAAQALAAAAAAAPAAIAAQAAAAAAAAAQAAIAAQAAAAAAAAAQAAMAAQAAAAAAAAARAAMAAQAAAAAAAAARAAQAAQAAAAAAAAASAAQAAQAAAAAAAAATAAQAAQAAAAAAAAAXAAgAAQAAAAEAAAAYAAgAAQAAAAEAAAAQAAYAAQAAAAAAAAARAAYAAQAAAAAAAAASAAcAAQAAAAAAAAATAAgAAQAAAAAAAAAUAAgAAQAAAAAAAAAXAAcAAQAAAAAAAAAWAAgAAQAAAAAAAAAVAAgAAQAAAAAAAAAYAAcAAQAAAAAAAAASAAgAAQAAAAEAAAAQAAcAAQAAAAEAAAAQAAgAAQAAAAEAAAARAAcAAQAAAAEAAAARAAgAAQAAAAEAAAAfAAgAAQAAAAAAAAAgAAgAAQAAAAAAAAAhAAgAAQAAAAAAAAAiAAgAAQAAAAAAAAAjAAgAAQAAAAAAAAAkAAgAAQAAAAAAAAAlAAcAAQAAAAAAAAAmAAcAAQAAAAAAAAAnAAcAAQAAAAAAAAAoAAcAAQAAAAAAAAApAAcAAQAAAAAAAAAqAAcAAQAAAAAAAAArAAgAAQAAAAAAAAAtAAgAAQAAAAAAAAAsAAgAAQAAAAAAAAAvAAgAAQAAAAAAAAAuAAgAAQAAAAAAAAAvAAUAAQAAAAIAAAAyAAcAAQAAAAAAAAAxAAcAAQAAAAAAAAAzAAYAAQAAAAAAAAA0AAYAAQAAAAAAAAA1AAUAAQAAAAAAAAA2AAUAAQAAAAAAAAA3AAUAAQAAAAAAAAA3AAQAAQAIAAMAAAA4AAUAAQAAAAAAAAA5AAUAAQAAAAAAAAA6AAUAAQAAAAAAAAA6AAIAAQAAAAMAAAA6AAMAAQAAAAQAAAA6AAQAAQAAAAUAAAA7AAUAAQAAAAAAAAA+AAcAAQAAAAAAAAA/AAcAAQAAAAAAAAA/AAgAAQAAAAAAAABAAAgAAQAAAAAAAABBAAgAAQAAAAAAAAAwAAsAAQAAAAAAAAAxAAwAAQAAAAAAAAAyAAwAAQAAAAAAAAAzAAwAAQAAAAAAAAA0AAwAAQAAAAAAAAA4AAwAAQAAAAAAAAA5AAwAAQAAAAAAAAA6AAwAAQAAAAAAAAA7AAwAAQAAAAAAAAA8AAwAAQAAAAAAAAA+AA4AAQAAAAAAAAA/AA4AAQAAAAAAAABAAA4AAQAAAAAAAABBAA4AAQAAAAAAAABHAA4AAQAAAAAAAABIAA4AAQAAAAAAAABJAA0AAQAAAAAAAABKAA0AAQAAAAAAAABLAA0AAQAAAAAAAABMAA0AAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAgAAQAAAAAAAAABAAgAAQAAAAAAAAACAAgAAQAAAAAAAAADAAgAAQAAAAAAAAAEAAgAAQAAAAEAAAAEAAcAAQAAAAAAAAAFAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAHAAYAAQAAAAAAAAAIAAYAAQAAAAAAAAAJAAYAAQAAAAAAAAAKAAYAAQAAAAAAAAALAAYAAQAAAAAAAAAFAAgAAQAAAAEAAAAFAAcAAQAAAAEAAAAGAAcAAQAAAAEAAAAHAAcAAQAAAAEAAAAIAAcAAQAAAAEAAAAJAAcAAQAAAAEAAAAKAAcAAQAAAAEAAAALAAcAAQAAAAEAAAALAAgAAQAAAAEAAAAKAAgAAQAAAAEAAAAJAAgAAQAAAAEAAAAIAAgAAQAAAAEAAAAHAAgAAQAAAAEAAAAGAAgAAQAAAAEAAAAMAAgAAQAAAAEAAAAMAAcAAQAAAAEAAAAMAAYAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAIAAQAAAAAAAAAIAAIAAQAAAAAAAAAJAAIAAQAAAAAAAAAKAAIAAQAAAAAAAAALAAIAAQAAAAAAAAAMAAIAAQAJAAAAAAANAAIAAQAKAAAAAAAOAAIAAQALAAAAAAAPAAIAAQAAAAAAAAAQAAIAAQAAAAAAAAAQAAMAAQAAAAAAAAARAAMAAQAAAAAAAAARAAQAAQAAAAAAAAASAAQAAQAAAAAAAAATAAQAAQAAAAAAAAAXAAgAAQAAAAEAAAAYAAgAAQAAAAEAAAAQAAYAAQAAAAAAAAARAAYAAQAAAAAAAAASAAcAAQAAAAAAAAATAAgAAQAAAAAAAAAUAAgAAQAAAAAAAAAXAAcAAQAAAAAAAAAWAAgAAQAAAAAAAAAVAAgAAQAAAAAAAAAYAAcAAQAAAAAAAAASAAgAAQAAAAEAAAAQAAcAAQAAAAEAAAAQAAgAAQAAAAEAAAARAAcAAQAAAAEAAAARAAgAAQAAAAEAAAAfAAgAAQAAAAAAAAAgAAgAAQAAAAAAAAAhAAgAAQAAAAAAAAAiAAgAAQAAAAAAAAAjAAgAAQAAAAAAAAAkAAgAAQAAAAAAAAAlAAcAAQAAAAAAAAAmAAcAAQAAAAAAAAAnAAcAAQAAAAAAAAAoAAcAAQAAAAAAAAApAAcAAQAAAAAAAAAqAAcAAQAAAAAAAAArAAgAAQAAAAAAAAAtAAgAAQAAAAAAAAAsAAgAAQAAAAAAAAAvAAgAAQAAAAAAAAAuAAgAAQAAAAAAAAAyAAcAAQAAAAAAAAAxAAcAAQAAAAAAAAAzAAYAAQAAAAAAAAA0AAYAAQAAAAAAAAA1AAUAAQAAAAAAAAA2AAUAAQAAAAAAAAA3AAUAAQAAAAAAAAA3AAQAAQAIAAMAAAA4AAUAAQAAAAAAAAA5AAUAAQAAAAAAAAA6AAUAAQAAAAAAAAA6AAIAAQAAAAMAAAA6AAMAAQAAAAQAAAA6AAQAAQAAAAUAAAA7AAUAAQAAAAAAAAA+AAcAAQAAAAAAAAA/AAcAAQAAAAAAAAA/AAgAAQAAAAAAAABAAAgAAQAAAAAAAABBAAgAAQAAAAAAAAAwAAsAAQAAAAAAAAAxAAwAAQAAAAAAAAAyAAwAAQAAAAAAAAAzAAwAAQAAAAAAAAA0AAwAAQAAAAAAAAA+AA4AAQAAAAAAAAA/AA4AAQAAAAAAAABAAA4AAQAAAAAAAABBAA4AAQAAAAAAAABHAA4AAQAAAAAAAABIAA4AAQAAAAAAAABJAA0AAQAAAAAAAABKAA0AAQAAAAAAAABLAA0AAQAAAAAAAABMAA0AAQAAAAAAAAA1AAwAAQAAAAAAAAA2AAwAAQAAAAAAAAA3AAwAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_htemk")
 
 [node name="background" type="TileMapLayer" parent="game" unique_id=471138076]
@@ -524,7 +599,7 @@ tile_map_data = PackedByteArray("AAAAAAgAAAAAAA4AAAABAAgAAAAAAA4AAAACAAgAAAAAAA4
 tile_set = SubResource("TileSet_14cdr")
 
 [node name="Boundary" type="Area2D" parent="." unique_id=670833702]
-position = Vector2(-0.22836888, 152.00311)
+position = Vector2(0.2442267, 341.0131)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary" unique_id=94701175]
@@ -573,21 +648,42 @@ position = Vector2(452, 164)
 libraries/ = SubResource("AnimationLibrary_ynf5e")
 autoplay = &"new_animation"
 
+[node name="platform6" parent="platforms" unique_id=1968867326 instance=ExtResource("4_jjvhh")]
+position = Vector2(950, 221)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform6" unique_id=26852648]
+libraries/ = SubResource("AnimationLibrary_k12tt")
+autoplay = &"new_animation"
+
+[node name="platform7" parent="platforms" unique_id=493754830 instance=ExtResource("4_jjvhh")]
+position = Vector2(983, 338)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform7" unique_id=2108322641]
+libraries/ = SubResource("AnimationLibrary_fevyy")
+autoplay = &"new_animation"
+
 [node name="Spawn_point" type="Marker2D" parent="." unique_id=960268044]
 position = Vector2(39, 124)
 
-[node name="Node" type="Node" parent="." unique_id=1928682038]
+[node name="Slimes" type="Node" parent="." unique_id=1928682038]
 
-[node name="Slimes" parent="Node" unique_id=1119752323 instance=ExtResource("8_344ge")]
+[node name="Slimes" parent="Slimes" unique_id=1119752323 instance=ExtResource("8_344ge")]
 position = Vector2(315.00003, 111.99999)
 rotation = -0.008081248
 
-[node name="Slimes2" parent="Node" unique_id=1643750486 instance=ExtResource("8_344ge")]
+[node name="Slimes2" parent="Slimes" unique_id=1643750486 instance=ExtResource("8_344ge")]
 position = Vector2(601, 95)
 rotation = -0.008081248
 
-[node name="Slimes3" parent="Node" unique_id=2076449085 instance=ExtResource("8_344ge")]
-position = Vector2(906, 172)
+[node name="Slimes3" parent="Slimes" unique_id=2076449085 instance=ExtResource("8_344ge")]
+position = Vector2(1000, 202)
 rotation = -0.008081248
+
+[node name="Slimes4" parent="Slimes" unique_id=726605859 instance=ExtResource("8_344ge")]
+position = Vector2(872, 60)
+rotation = -0.008081248
+
+[node name="finish" parent="." unique_id=1024768627 instance=ExtResource("9_ynf5e")]
+position = Vector2(1723.4509, 74.929924)
 
 [connection signal="body_entered" from="Boundary" to="." method="_on_boundary_body_entered"]

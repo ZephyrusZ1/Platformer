@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dfx6icnl0qdf7"]
+
+[ext_resource type="Script" uid="uid://dvydc14rterwq" path="res://Scripts/finish.gd" id="1_njc7a"]
+[ext_resource type="Texture2D" uid="uid://bnnjesaw108b5" path="res://Assets/sprites/world_tileset.png" id="2_rhiuc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5e78q"]
+
+[node name="finish" type="Area2D" unique_id=1024768627 groups=["finish"]]
+position = Vector2(1098.4388, 73.879074)
+script = ExtResource("1_njc7a")
+level_selection = "D:/Project/platformer/Scenes/level_select.tscn"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1567557770]
+position = Vector2(-499.0425, 126.9713)
+shape = SubResource("CircleShape2D_5e78q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2105249271]
+position = Vector2(-498.03442, 125.979416)
+texture = ExtResource("2_rhiuc")
+region_enabled = true
+region_rect = Rect2(0, 33, 14, 14)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

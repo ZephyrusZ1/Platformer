@@ -16,6 +16,7 @@ var die = false
 func _ready():
 	Eventbus.death.connect(_on_death)
 	Eventbus.knockback.connect(knockback)
+	Eventbus.other_knockback.connect(other_knockback)
 	update_counter()
 	hide()
 func _physics_process(delta: float) -> void:
@@ -31,6 +32,7 @@ func _physics_process(delta: float) -> void:
 					animations.flip_h = false
 				elif Input.is_action_pressed("left"):
 					velocity.x = -SPEED
+					animations.play("walk")
 					animations.flip_h = true
 				elif Input.is_action_pressed("jump") and is_on_floor():
 					velocity.y =  JUMP_VELOCITY
@@ -80,6 +82,13 @@ func knockback():
 	damaged = true
 	animations.play("attacked")
 	self.position.x -= 5
+	self.position.y -=20
+	await animations.animation_finished
+	damaged = false
+func other_knockback():
+	damaged = true
+	animations.play("attacked")
+	self.position.x += 5
 	self.position.y -=20
 	await animations.animation_finished
 	damaged = false

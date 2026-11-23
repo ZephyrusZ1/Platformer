@@ -103,7 +103,7 @@ region = Rect2(224, 96, 32, 32)
 [sub_resource type="SpriteFrames" id="SpriteFrames_htemk"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.6,
 "texture": SubResource("AtlasTexture_jp7qv")
 }],
 "loop": 0,
@@ -205,6 +205,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1050117811]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_htemk")
+animation = &"attacked"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1302282328]

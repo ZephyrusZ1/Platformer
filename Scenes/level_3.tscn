@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://xaf7w6n6qkej" path="res://Assets/sprites/platforms.png" id="4_5rvg2"]
 [ext_resource type="Texture2D" uid="uid://bnnjesaw108b5" path="res://Assets/sprites/world_tileset.png" id="5_jtv8s"]
 [ext_resource type="PackedScene" uid="uid://bqpk47h2u8j1a" path="res://Scenes/coin.tscn" id="6_c81s1"]
+[ext_resource type="PackedScene" uid="uid://bd1i1hlvg4qpp" path="res://Scenes/snow_plat.tscn" id="7_5e78q"]
+[ext_resource type="PackedScene" uid="uid://csc7c7elqo7f2" path="res://Scenes/snow_finish.tscn" id="7_53xsp"]
+[ext_resource type="PackedScene" uid="uid://c1sf7fbjrxdcr" path="res://Scenes/slimes.tscn" id="7_l4wr6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kry3j"]
 texture = ExtResource("4_5rvg2")
@@ -332,13 +335,50 @@ sources/0 = SubResource("TileSetAtlasSource_6bp64")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_htemk"]
 distance = -117.0
 
+[sub_resource type="Animation" id="Animation_l4wr6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(839, 238)]
+}
+
+[sub_resource type="Animation" id="Animation_5rvg2"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(839, 238), Vector2(1052, 238)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtv8s"]
+_data = {
+&"RESET": SubResource("Animation_l4wr6"),
+&"new_animation": SubResource("Animation_5rvg2")
+}
+
 [node name="level_3" type="Node2D" unique_id=1321188691]
 rotation = -0.008081247
 script = ExtResource("1_53xsp")
 ui = ExtResource("2_5e78q")
 
 [node name="Char" parent="." unique_id=1378589949 instance=ExtResource("3_l4wr6")]
-position = Vector2(23, 119)
+position = Vector2(25.182955, 101.20681)
 
 [node name="Camera2D" type="Camera2D" parent="Char" unique_id=1337700345]
 position = Vector2(0, 2)
@@ -348,7 +388,7 @@ metadata/_edit_group_ = true
 [node name="game" type="TileMapLayer" parent="." unique_id=1048519891]
 z_index = 2
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAAgAAQAGAAAAAAABAAgAAQAGAAAAAAACAAgAAQAGAAAAAAADAAgAAQAGAAAAAAAEAAcAAQAGAAAAAAAFAAYAAQAGAAAAAAAGAAYAAQAGAAAAAAAHAAYAAQAGAAAAAAAIAAYAAQAGAAAAAAAJAAYAAQAGAAAAAAAKAAYAAQAGAAAAAAALAAYAAQAGAAAAAAAFAAgAAQAGAAEAAAAGAAgAAQAGAAEAAAAMAAYAAQAGAAAAAAAEAAgAAQAGAAEAAAANAAgAAQAGAAAAAAAOAAgAAQAGAAAAAAAPAAgAAQAGAAAAAAAPAAkAAQAGAAAAAAAQAAkAAQAGAAAAAAARAAkAAQAGAAAAAAASAAkAAQAGAAAAAAATAAkAAQAGAAAAAAAGAAcAAQAGAAEAAAAFAAcAAQAGAAEAAAAHAAcAAQAGAAEAAAAIAAcAAQAGAAEAAAAJAAcAAQAGAAEAAAAIAAgAAQAGAAEAAAAHAAgAAQAGAAEAAAAJAAgAAQAGAAEAAAAKAAgAAQAGAAEAAAALAAgAAQAGAAEAAAAMAAgAAQAGAAEAAAALAAcAAQAGAAEAAAAKAAcAAQAGAAEAAAAMAAcAAQAGAAEAAAAUAAwAAQAGAAAAAAAVAAwAAQAGAAAAAAAWAAwAAQAGAAAAAAAWAA0AAQAGAAAAAAAXAA0AAQAGAAAAAAAXAA4AAQAGAAAAAAAYAA4AAQAGAAAAAAAZAA8AAQAGAAAAAAAaAA8AAQAGAAAAAAAbAA8AAQAGAAAAAAAcAA8AAQAGAAAAAAAdAA8AAQAGAAAAAAAeAA8AAQAGAAAAAAAfAA8AAQAGAAAAAAAgAA4AAQAGAAAAAAAhAA4AAQAGAAAAAAAiAA0AAQAGAAAAAAAjAA0AAQAGAAAAAAAkAA0AAQAGAAAAAAAlAA0AAQAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAgAAQAGAAAAAAABAAgAAQAGAAAAAAACAAgAAQAGAAAAAAADAAgAAQAGAAAAAAAEAAcAAQAGAAAAAAAFAAYAAQAGAAAAAAAGAAYAAQAGAAAAAAAHAAYAAQAGAAAAAAAIAAYAAQAGAAAAAAAJAAYAAQAGAAAAAAAKAAYAAQAGAAAAAAALAAYAAQAGAAAAAAAFAAgAAQAGAAEAAAAGAAgAAQAGAAEAAAAMAAYAAQAGAAAAAAAEAAgAAQAGAAEAAAANAAgAAQAGAAAAAAAOAAgAAQAGAAAAAAAPAAgAAQAGAAAAAAAPAAkAAQAGAAAAAAAQAAkAAQAGAAAAAAARAAkAAQAGAAAAAAASAAkAAQAGAAAAAAATAAkAAQAGAAAAAAAGAAcAAQAGAAEAAAAFAAcAAQAGAAEAAAAHAAcAAQAGAAEAAAAIAAcAAQAGAAEAAAAJAAcAAQAGAAEAAAAIAAgAAQAGAAEAAAAHAAgAAQAGAAEAAAAJAAgAAQAGAAEAAAAKAAgAAQAGAAEAAAALAAgAAQAGAAEAAAAMAAgAAQAGAAEAAAALAAcAAQAGAAEAAAAKAAcAAQAGAAEAAAAMAAcAAQAGAAEAAAAUAAwAAQAGAAAAAAAVAAwAAQAGAAAAAAAWAAwAAQAGAAAAAAAWAA0AAQAGAAAAAAAXAA0AAQAGAAAAAAAXAA4AAQAGAAAAAAAYAA4AAQAGAAAAAAAZAA8AAQAGAAAAAAAaAA8AAQAGAAAAAAAbAA8AAQAGAAAAAAAcAA8AAQAGAAAAAAAdAA8AAQAGAAAAAAAeAA8AAQAGAAAAAAAfAA8AAQAGAAAAAAAgAA4AAQAGAAAAAAAhAA4AAQAGAAAAAAAiAA0AAQAGAAAAAAAjAA0AAQAGAAAAAAAkAA0AAQAGAAAAAAAlAA0AAQAGAAAAAAAmAA0AAQAJAAIAAAAnAA0AAQAKAAIAAAAoAA0AAQAKAAIAAAApAA0AAQAKAAIAAAAqAA0AAQAKAAIAAAArAA0AAQALAAIAAAAsAA0AAQAGAAAAAAAtAA0AAQAGAAAAAAAuAA0AAQAGAAAAAAAvAA0AAQAGAAAAAAAwAA0AAQAGAAAAAAANAAkAAQAGAAEAAAAOAAkAAQAGAAEAAAAUAA0AAQAGAAEAAAAVAA0AAQAGAAEAAAAVAA4AAQAGAAEAAAAWAA4AAQAGAAEAAAAWAA8AAQAGAAEAAAAXAA8AAQAGAAEAAAAYAA8AAQAGAAEAAAAgAA8AAQAGAAEAAAAhAA8AAQAGAAEAAAAiAA4AAQAGAAEAAAAjAA4AAQAGAAEAAAAkAA4AAQAGAAEAAAAlAA4AAQAGAAEAAAAsAA4AAQAGAAEAAAAtAA4AAQAGAAEAAAAuAA4AAQAGAAEAAAAvAA4AAQAGAAEAAAAwAA4AAQAGAAEAAAAzAAsAAQAGAAAAAAA2AAoAAQAGAAAAAAA3AAoAAQAGAAAAAAA4AAoAAQAGAAAAAAA5AAoAAQAGAAAAAAA8AAwAAQAGAAAAAAA9AAwAAQAGAAAAAABAAA0AAQAGAAAAAABBAA0AAQAGAAAAAABCAA0AAQAGAAAAAABDAA0AAQAGAAAAAABEAA0AAQAGAAAAAABFAAwAAQAGAAAAAABGAAwAAQAGAAAAAABHAAwAAQAGAAAAAABIAAwAAQAGAAAAAABJAAsAAQAGAAAAAABKAAoAAQAGAAAAAABLAAoAAQAGAAAAAABNAAoAAQAGAAAAAABMAAoAAQAGAAAAAAA=")
 tile_set = SubResource("TileSet_htemk")
 
 [node name="background" type="TileMapLayer" parent="game" unique_id=471138076]
@@ -369,9 +409,49 @@ shape = SubResource("WorldBoundaryShape2D_htemk")
 [node name="Coin" parent="coins" unique_id=1326707661 instance=ExtResource("6_c81s1")]
 position = Vector2(104, 89)
 
+[node name="Coin2" parent="coins" unique_id=1753078833 instance=ExtResource("6_c81s1")]
+position = Vector2(762, 193)
+
+[node name="Slimes2" type="Node" parent="coins/Coin2" unique_id=1235938099]
+
+[node name="Slimes" parent="coins/Coin2/Slimes2" unique_id=1119752323 instance=ExtResource("7_l4wr6")]
+position = Vector2(413, 223)
+rotation = -0.008081248
+
+[node name="Slimes2" parent="coins/Coin2/Slimes2" unique_id=1221849762 instance=ExtResource("7_l4wr6")]
+position = Vector2(121, 81)
+rotation = -0.008081248
+
+[node name="Slimes3" parent="coins/Coin2/Slimes2" unique_id=898346772 instance=ExtResource("7_l4wr6")]
+position = Vector2(889, 140)
+rotation = -0.008081248
+
+[node name="Slimes4" parent="coins/Coin2/Slimes2" unique_id=740995394 instance=ExtResource("7_l4wr6")]
+position = Vector2(1042, 188)
+rotation = -0.008081248
+
+[node name="Coin3" parent="coins" unique_id=470496989 instance=ExtResource("6_c81s1")]
+position = Vector2(520, 211)
+
+[node name="Coin4" parent="coins" unique_id=2039593020 instance=ExtResource("6_c81s1")]
+position = Vector2(376, 198)
+
+[node name="Coin5" parent="coins" unique_id=747107397 instance=ExtResource("6_c81s1")]
+position = Vector2(217, 119)
+
 [node name="platforms" type="Node" parent="." unique_id=1212823510]
+
+[node name="platform" parent="platforms" unique_id=1997350715 instance=ExtResource("7_5e78q")]
+position = Vector2(839, 238)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform" unique_id=285008053]
+libraries/ = SubResource("AnimationLibrary_jtv8s")
+autoplay = &"new_animation"
 
 [node name="Spawn_point" type="Marker2D" parent="." unique_id=960268044]
 position = Vector2(39, 124)
+
+[node name="finish" parent="." unique_id=1024768627 instance=ExtResource("7_53xsp")]
+position = Vector2(1738.8544, 25.052778)
 
 [connection signal="body_entered" from="Boundary" to="." method="_on_boundary_body_entered"]

@@ -21,7 +21,7 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	get_tree().paused = false
-	Eventbus.start.emit()
+	get_tree().reload_current_scene()
 	hide()
 
 
